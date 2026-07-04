@@ -11,8 +11,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ── Global CSS ────────────────────────────────────────────────────────────────
-st.html("""
+# ── Global CSS — must use st.markdown to inject into the main page ────────────
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 :root {
@@ -21,19 +21,19 @@ st.html("""
   --indigo:#818cf8; --sky:#38bdf8;
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body,[class*="css"]{font-family:'Inter',sans-serif!important;background-color:var(--bg)!important;color:var(--text)!important}
+html,body,[class*="css"]{font-family:'Inter',sans-serif!important;background-color:#03050a!important;color:#e2e8f0!important}
 #MainMenu,footer,header{visibility:hidden}
-[data-testid="stAppViewContainer"]{background:var(--bg)!important}
+[data-testid="stAppViewContainer"]{background:#03050a!important}
 [data-testid="stMainBlockContainer"]{padding:0 2.5rem!important;max-width:1200px!important}
 section[data-testid="stSidebar"]{display:none}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-thumb{background:#1e293b;border-radius:4px}
 label[data-testid="stWidgetLabel"] p{
   font-family:'JetBrains Mono',monospace!important;font-size:11px!important;
-  color:var(--muted)!important;letter-spacing:.08em;text-transform:uppercase}
+  color:#64748b!important;letter-spacing:.08em;text-transform:uppercase}
 [data-testid="stTextInput"] input{
   background:rgba(12,18,32,.8)!important;border:1px solid rgba(255,255,255,.1)!important;
-  color:var(--text)!important;border-radius:10px!important;
+  color:#e2e8f0!important;border-radius:10px!important;
   font-family:'JetBrains Mono',monospace!important;font-size:13px!important}
 [data-testid="stFileUploader"]{
   background:rgba(12,18,32,.6)!important;border:1px solid rgba(255,255,255,.07)!important;
@@ -48,7 +48,7 @@ label[data-testid="stWidgetLabel"] p{
   font-family:'JetBrains Mono',monospace!important;font-size:12px!important;border-radius:10px!important}
 hr{border-color:rgba(255,255,255,.05)!important}
 </style>
-""")
+""", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
